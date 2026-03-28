@@ -1,4 +1,4 @@
-from flask import Flask, url_for, request, redirect
+from flask import Flask, url_for, request, redirect, render_template
 
 app = Flask(__name__)
 
@@ -11,6 +11,12 @@ def main():
 @app.route('/index')
 def index():
     return '<h1>И на Марсе будут яблони цвести!</h1>'
+
+
+@app.route('/<string:title>')
+@app.route('/index/<string:title>')
+def main_index_title(title):
+    return render_template("base.html", title=title)
 
 
 @app.route('/promotion')
@@ -236,22 +242,22 @@ def load_photo():
     <title>Отбор астронавтов</title>
 </head>
 <body>
-<h1 class="fw-bold">Загрузка фотографии</h1>
-<h2>для участия в миссии</h2>
-<div>
-    <form class="request_form" method="post" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="photo">Приложите фотографию</label>
-            <input type="file" class="form-control-file" id="photo" name="file">
-        </div>
-        <img src="{url_for('static', filename='img/photo.jpg')}">
-        <br>
-        <button type="submit" class="btn btn-primary">Отправить</button>
-    </form>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-            crossorigin="anonymous"></script>
-</div>
+    <h1 class="fw-bold">Загрузка фотографии</h1>
+    <h2>для участия в миссии</h2>
+    <div>
+        <form class="request_form" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="photo">Приложите фотографию</label>
+                <input type="file" class="form-control-file" id="photo" name="file">
+            </div>
+            <img src="{url_for('static', filename='img/photo.jpg')}">
+            <br>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+                crossorigin="anonymous"></script>
+    </div>
 </body>
 </html>
         '''
