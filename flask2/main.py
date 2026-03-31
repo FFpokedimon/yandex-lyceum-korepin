@@ -326,5 +326,20 @@ def list_prof(list_type):
     return render_template("list_prof.html", list_type=list_type)
 
 
+@app.route('/answer')
+@app.route('/auto_answer')
+def auto_answer():
+    data = {
+        "Фамилия": "Watny",
+        "Имя": "Mark",
+        "Образование": "выше среднего",
+        "Профессия": "штурман марсохода",
+        "Пол": "male",
+        "Мотивация": "Всегда мечтал застрять на Марсе!",
+        "Готовы остаться на Марсе?": True
+    }
+    return render_template("auto_answer.html", data=data)
+
+
 if __name__ == "__main__":
     app.run(host='127.0.0.1', port=8080)
