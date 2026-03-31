@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if list_type == "ul" %}
+        <h3 class="mx-4 fw-semibold">Список профессий</h3>
+        <ul class="mx-5">
+            <li>инженер-исследователь</li>
+            <li>пилот</li>
+            <li>строитель</li>
+            <li>экзобиолог</li>
+            <li>врач</li>
+        </ul>
+    {% elif list_type == "ol" %}
+        <h3 class="mx-4 fw-semibold">Список профессий</h3>
+        <ol class="mx-5">
+            <li>инженер-исследователь</li>
+            <li>пилот</li>
+            <li>строитель</li>
+            <li>экзобиолог</li>
+            <li>врач</li>
+        </ol>
+    {% else %}
+        <h3 class="fw-semibold">Неверное значение параметра</h3>
+    {% endif %}
+{% endblock %}
