@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="text-center py-4">Размещение по каютам</h2>
+    <ul class="list-unstyled mx-auto fs-5 container">
+        {% for astronaut in astronauts %}
+            <li>{{ astronaut }} - Каюта № {{ loop.index }}{% if loop.first %} - капитан корабля{% endif %}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

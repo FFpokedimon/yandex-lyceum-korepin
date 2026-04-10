@@ -346,6 +346,11 @@ def table(sex, age):
     return render_template("table.html", sex=sex, age=age)
 
 
+@app.route('/distribution')
+def distribution():
+    astronauts = ['Ридли Скотт', 'Энди Уир', 'Марк Уотни']
+    return render_template("distribution.html", astronauts=astronauts)
+
 
 
 if __name__ == "__main__":
