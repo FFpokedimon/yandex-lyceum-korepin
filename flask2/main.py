@@ -341,5 +341,12 @@ def auto_answer():
     return render_template("auto_answer.html", data=data)
 
 
+@app.route('/table/<string:sex>/<int:age>')
+def table(sex, age):
+    return render_template("table.html", sex=sex, age=age)
+
+
+
+
 if __name__ == "__main__":
     app.run(host='127.0.0.1', port=8080)
