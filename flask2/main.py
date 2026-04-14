@@ -1,6 +1,8 @@
 from flask import Flask, url_for, request, redirect, render_template
+from forms.login_form import LoginForm
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'ya_lyublyu_pelmeni'
 
 
 @app.route('/')
@@ -351,6 +353,13 @@ def distribution():
     astronauts = ['Ридли Скотт', 'Энди Уир', 'Марк Уотни']
     return render_template("distribution.html", astronauts=astronauts)
 
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        return redirect('/success')
+    return render_template('login.html', title='Аварийный доступ', form=form)
 
 
 if __name__ == "__main__":

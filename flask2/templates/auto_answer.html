@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% for k, v in data.items() %}
-        <p class="ms-5">{{ k }}{% if not loop.last %}: {% endif %} {{ v }}</p>
-    {% endfor %}
+{% for k, v in data.items() %}
+    <p class="ms-5">{{ k }}{% if not loop.last %}: {% endif %} {{ v }}</p>
+{% endfor %}
 {% endblock %}
